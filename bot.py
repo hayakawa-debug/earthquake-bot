@@ -3,11 +3,10 @@ import tweepy
 import os
 
 # X APIキー（GitHub ActionsのSecretsから読み込む）
-API_KEY = os.getenv("BhyXOHjAKtDprBFDbSJFVxqxd")
-API_SECRET = os.getenv("BUIEYkVKjtemb7DIItqdqPvGuvkR6ziGqEZqhfAEebAj30uJpf
-")
-ACCESS_TOKEN = os.getenv("1658403711071457280-eJ5BI6EDDefwEQLNLb9woeyINqvb37")
-ACCESS_SECRET = os.getenv("8rgJJu0wBLaBp1EEXstmiT5Stu7zL61JMAiNZXttiuTT6")
+API_KEY = os.getenv("API_KEY")
+API_SECRET = os.getenv("API_SECRET")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
 auth = tweepy.OAuth1UserHandler(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
@@ -24,4 +23,5 @@ link = entry.link
 # ツイート内容
 tweet = f"【気象庁 地震情報】\n{title}\n{link}"
 api.update_status(tweet)
+
 
