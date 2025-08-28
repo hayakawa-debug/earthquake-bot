@@ -9,7 +9,7 @@ ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 ACCESS_SECRET = os.getenv("ACCESS_SECRET")
 
 auth = tweepy.OAuth1UserHandler(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
 # 気象庁公式の地震情報フィード
 url = "https://www.data.jma.go.jp/developer/xml/feed/eqvol.xml"
@@ -23,5 +23,6 @@ link = entry.link
 # ツイート内容
 tweet = f"【気象庁 地震情報】\n{title}\n{link}"
 api.update_status(tweet)
+
 
 
